@@ -6,14 +6,16 @@ import PostTitle from '../components/post-title'
 export default function PostHeader({ title, coverImage, date, author }) {
   return (
     <>
+      <div className='pageHeaderWrapper'>
+
       <PostTitle>{title}</PostTitle>
-      <div className="hidden md:block md:mb-12">
+      <div className="author hidden md:block md:mb-12">
         {author && <Avatar name={author.name} picture={author.picture} />}
       </div>
       <div className="mb-8 md:mb-16 sm:mx-0">
         <CoverImage title={title} url={coverImage.url} />
       </div>
-      <div className="max-w-2xl mx-auto">
+      <div className="date max-w-2xl">
         <div className="block md:hidden mb-6">
           {author && <Avatar name={author.name} picture={author.picture} />}
         </div>
@@ -21,6 +23,8 @@ export default function PostHeader({ title, coverImage, date, author }) {
           <DateComponent dateString={date} />
         </div>
       </div>
+      </div>
+
     </>
   )
 }
